@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\RabbitMQController;
 Route::get('/',[EventoController::class, 'index']);
+Route::get('/enviar-mensagem', [RabbitMQController::class, 'enviarMensagem']);
 Route::get('/eventos/cadastrar',[EventoController::class, 'cadastrar'])->middleware('auth');
 Route::get('/cadastrar-conta', [EventoController::class, 'cadastrarConta']);
 Route::get('/eventos', [EventoController::class, 'eventos']);

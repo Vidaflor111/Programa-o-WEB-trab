@@ -51,6 +51,15 @@ return [
             'after_commit' => false,
         ],
 
+        'rabbitmq' => [
+            'driver' => 'rabbitmq',
+            'host' => env('RABBITMQ_HOST', '127.0.0.1'),
+            'port' => env('RABBITMQ_PORT', 5672),
+            'vhost' => env('RABBITMQ_VHOST', '/'),
+            'login' => env('RABBITMQ_USER', 'guest'),
+            'password' => env('RABBITMQ_PASSWORD', 'guest'),
+        ],
+
         'sqs' => [
             'driver' => 'sqs',
             'key' => env('AWS_ACCESS_KEY_ID'),
