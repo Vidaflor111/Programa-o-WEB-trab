@@ -67,6 +67,14 @@ class EventoController extends Controller
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
         return view('eventos.show', ['event'=>$event, 'eventOwner'=>$eventOwner]);
     }
+
+    public function joinEvent($id) {
+
+        $user = auth()->user();
+        $user->eventosParticipante()->attach($id);
+        $event = Evento::findOrFail($id);
+        return redirect('/')->with('msg', 'Voce confirmou sua preseça no evento'.$event->titulo);
+    }
     
 }
 

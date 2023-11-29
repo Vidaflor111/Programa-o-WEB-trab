@@ -13,7 +13,11 @@
             <h1>{{$event->titulo}}</h1>
             <p class="event-city"><ion-icon name="location-outline"></ion-icon>{{$event->cidade}}</p>
             <p class="event-owner"><ion-icon name="star-outline"></ion-icon> {{$eventOwner['name']}}</p>
-            <a href="#" class="btn btn-primary" id="event-submit">Confirmar Presença</a>
+            <form action="/eventos/entrar/{{$event->id}}" method="POST">
+                @csrf
+                <a href="/eventos/entrar/{{$event->id}}" class="btn btn-primary" id="event-submit" onclick="event.preventDefault();this.closest('form').submit();">Confirmar Presença</a>
+            </form>
+            
         </div>
         <div id="description-container">
             <h2>Sobre o Evento</h2>

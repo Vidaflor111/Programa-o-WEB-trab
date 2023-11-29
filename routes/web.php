@@ -23,7 +23,7 @@ Route::get('/entrar', [EventoController::class, 'entrar']);
 Route::get('/eventos/{id}', [EventoController::class, 'show']);
 
 Route::post('/eventos',[EventoController::class, 'store']);
-
+Route::post('/eventos/entrar/{id}',[EventoController::class, 'joinEvent'])->middleware('auth');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
